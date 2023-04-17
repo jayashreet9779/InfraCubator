@@ -1,0 +1,8 @@
+docker pull nginx:latest
+docker run -d -p 8080:80 nginx
+(Open http://localhost:8080/ in browser and check)
+docker ps
+docker logs -f <container_ID>
+docker exec -it <container_ID> bash(to get inside root)
+exit(to come out)
+docker stop <container_ID>
