@@ -1,0 +1,15 @@
+#Create docker-compose file for go application
+touch docker-compose.yaml
+ 
+version: '3'
+services:
+  golang-docker-app:
+    image: jayatri9779/go-app
+    ports:
+      - 8080:8080
+      
+docker-compose up -d
+
+localhost:8080/vote
+
+docker-compose down
