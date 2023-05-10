@@ -1,0 +1,17 @@
+#Create docker volume and call it my_volume
+docker volume create my_volume
+
+#Create Contaniner and attch volume to it
+docker run -d -v my-volume:/usr jayatri9779/go-app
+
+# Add something files in the folder
+docker exec -it containerid sh
+cd ../usr/
+touch HelloWorld
+
+#Create second container
+docker run -d -v my-volume:/usr jayatri9779/go-app
+
+docker exec -it containerid sh
+cd ../usr/
+ls
