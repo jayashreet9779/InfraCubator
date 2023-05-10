@@ -1,0 +1,16 @@
+# build stage
+FROM golang AS build
+COPY . $GOPATH/src/
+WORKDIR $GOPATH/src/
+RUN make build-linux
+
+# run stage
+FROM golang:alpine
+COPY --from=build $GOPATH/src/out/go-app ./
+EXPOSE 8080
+ENTRYPOINT ["./go-app"]
+
+ docker build . -t jayatri9779/go-app 
+ docker run -d -p 8080:8080 jayatri9779/go-app 
+ 
+ 
