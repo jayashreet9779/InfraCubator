@@ -1,0 +1,19 @@
+Create docker image for go-app with the base image of golang:alpine
+
+FROM golang:alpine
+
+COPY . $GOPATH/src/
+WORKDIR $GOPATH/src/
+
+EXPOSE 8080
+
+ENTRYPOINT ["go", "run", "main.go"]
+
+docker build . -t jayatri9779/go-app
+docker run -d -p 8080:8080 jayatri9779/go-app
+ 
+curl localhost:8080 [output:hello]
+
+docker login
+
+docker push jayatri9779/go-app
