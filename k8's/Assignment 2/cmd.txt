@@ -1,0 +1,11 @@
+#Create Replicaset
+kubectl create -f replicaset.yaml
+
+#Hit the pod with ip
+minikube ssh
+curl http://ip:8080/metadata/
+
+#post the data
+curl --header "Content-Type: application/json" /
+--request POST --data '{"group":"sunitparekh","name":"city","value":"Pune"}'  /
+http://ip:8080/metadata
