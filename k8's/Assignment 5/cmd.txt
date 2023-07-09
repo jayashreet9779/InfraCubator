@@ -1,0 +1,5 @@
+##Create mongo deployment
+kubectl create -f mongopod-deploy.yaml
+
+##Create metadata deployment
+kubectl create -f metadatapod.yaml
