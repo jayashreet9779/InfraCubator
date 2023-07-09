@@ -1,0 +1,16 @@
+#Create mongo pod
+kubectl create -f mongopod.yaml
+
+#Create mongo clusterip service
+kubectl create -f mongoservice.yaml
+
+#Add MongoDBURI, update image to v2 and redeploy metadata pod
+kubectl replace --force -f metadatapod.yaml
+
+#post the data from host machine
+curl --header "Content-Type: application/json" /
+--request POST --data '{"group":"sunitparekh","name":"city","value":"Pune"}' /
+http://ip:30080/metadata ##(NodeIP:nodeport)
+
+#get data from host machine
+curl http://ip:30080/metadata
