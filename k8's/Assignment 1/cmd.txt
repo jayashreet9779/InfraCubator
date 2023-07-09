@@ -1,0 +1,18 @@
+# Create a Pod specification for the metadataservice
+  kubectl create -f pod.yaml
+     
+# Check the logs
+  kubectl logs metadataservice
+
+# Exec into the container using /bin/sh command
+  kubectl exec -it metadataservice  /bin/sh
+
+# Check the Pod IP
+  kubectl get pod metadataservice -o wide
+
+# Describe the POD
+  kubectl describe pod metadataservice
+
+# Hit the POD ip
+  minikube ssh
+  curl ip:8080/metadata
